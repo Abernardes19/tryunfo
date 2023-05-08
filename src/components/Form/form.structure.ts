@@ -23,5 +23,7 @@ export const defaultForm = {
 }
 
 export interface IFormProps {
-  setInfos: React.Dispatch<React.SetStateAction<IFromCard[]>>
+  info: IFromCard;
+  setInfo: React.Dispatch<React.SetStateAction<IFromCard>>
+  setCards: React.Dispatch<React.SetStateAction<IFromCard[]>>;
 }

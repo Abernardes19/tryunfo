@@ -16,9 +16,6 @@ export default function Form(props: IFormProps) {
     }
   }
 
-  console.log(props.info);
-  
-
   const trunfoClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     const boolean = !props.info.trunfo

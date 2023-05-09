@@ -1,35 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Card from './components/Card'
+import Deck from './components/Deck'
+import Form from './components/Form'
+import { defaultForm, IFromCard } from './components/Form/form.structure'
+import Header from './components/Header'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [allCards, setAllCards] = useState([] as IFromCard[]);
+  const [formCard, setFormCard] = useState(defaultForm as IFromCard);
+  const [trunfo, setTrunfo] = useState(false as boolean);
+
+  const saveCard = () => {
+    if (formCard.trunfo === true) {
+      setTrunfo(true)
+    }
+    setAllCards(oldCards => [...oldCards, formCard]);
+    setFormCard(defaultForm)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <Header />
+      <div className="flex gap-10 w-screen items-center justify-center mb-5 mt-[200px]">
+        <Form setCards={setAllCards} info={formCard} setInfo={setFormCard} saveCard={saveCard} trunfo={trunfo} />
+        <Card info={formCard} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="flex gap-10 w-screen items-center justify-center">
+        <Deck allCards={allCards} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
-export default App

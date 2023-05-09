@@ -9,7 +9,8 @@ export default {
     extend: {
       colors: {
         "new-blue": "#000e3a",
-        "gray-1": "#535464"
+        "gray-1": "#535464",
+        "beige": "#a5a790"
       },
     },
     transitionProperty: {

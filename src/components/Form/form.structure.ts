@@ -26,4 +26,6 @@ export interface IFormProps {
   info: IFromCard;
   setInfo: React.Dispatch<React.SetStateAction<IFromCard>>
   setCards: React.Dispatch<React.SetStateAction<IFromCard[]>>;
+  saveCard: () => void;
+  trunfo: boolean;
 }
